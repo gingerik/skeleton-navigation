@@ -1,4 +1,11 @@
 import 'bootstrap';
+import {LogManager} from 'aurelia-framework';
+import {ConsoleAppender} from 'aurelia-logging-console';
+import {LogServer} from './log-server';
+
+LogManager.addAppender(new LogServer());
+LogManager.setLevel(LogManager.logLevel.debug);
+
 
 export function configure(aurelia) {
   aurelia.use
