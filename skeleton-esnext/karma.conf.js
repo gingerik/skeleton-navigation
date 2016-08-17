@@ -1,6 +1,5 @@
 // Karma configuration
 // Generated on Fri Dec 05 2014 16:49:29 GMT-0500 (EST)
-
 module.exports = function(config) {
   config.set({
 
@@ -13,7 +12,7 @@ module.exports = function(config) {
 
     jspm: {
       // Edit this to your needs
-      loadFiles: ['test/unit/setup.js', 'test/unit/**/*.js'],
+      loadFiles: ['test/unit/setup.js', 'test/unit/**/*.js', '../sdk/test.spec.js'],
       serveFiles: ['src/**/*.*'],
       paths: {
         '*': 'src/*',
@@ -21,6 +20,10 @@ module.exports = function(config) {
         'github:*': 'jspm_packages/github/*',
         'npm:*': 'jspm_packages/npm/*'
       }
+    },
+
+    proxies: {
+      '/sdk/': '/absolute/' + __dirname.split('/').slice(1, -1).join('/') + '/sdk/'
     },
 
     // list of files / patterns to load in the browser
